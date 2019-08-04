@@ -1,7 +1,12 @@
 # NodeMCU-HTTP-Server
 
-A lightweight HTTP server for NodeMCU.
+A lightweight, updated, fixed HTTP server for NodeMCU.
 Inspired by [nodemcu_http_server](https://github.com/borischernov/nodemcu_http_server).
+
+## Changes in this fork
+* Updated API references
+* Moved server startup from init.lua to startsv.lua (because last NodeMCU firmware runs out of memory when running "net.serverlisten()" server from init.lua)
+* The init.lua now just launches startsv.lua
 
 ## Features
 
@@ -15,18 +20,19 @@ Inspired by [nodemcu_http_server](https://github.com/borischernov/nodemcu_http_s
 ## Example
 
 ``` lua
--- init.lua
+-- startsv.lua
 print('Setting up WIFI...')
 wifi.setmode(wifi.STATION)
 wifi.sta.config('MY_SSID', 'MY_PASS')
 wifi.sta.connect()
 
-tmr.alarm(1, 1000, tmr.ALARM_AUTO, function()
+timer = tmr.create()
+timer:alarm(1000, tmr.ALARM_AUTO, function()
 	if wifi.sta.getip() == nil then
 		print('Waiting for IP ...')
 	else
 		print('IP is ' .. wifi.sta.getip())
-	tmr.stop(1)
+        timer:stop(1)
 	end
 end)
 
@@ -56,7 +62,6 @@ httpServer:use('/redirect', function(req, res)
 	res:redirect('doge.jpg')
 end)
 ```
-
 
 
 ## Request
