@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Index Page</title>
-</head>
-<body>
-	<h1>Welcome my friend.</h1>
-	<p>Index.html is here!</p>
-	<h2>You can access follows to test the server</h2>
-	<ul>
-		<li><a href="welcome?name=doge">/welcome?name=doge</a></li>
-		<li><a href="doge.jpg">/doge.jpg</a></li>
-		<li><a href="doge">/doge</a></li>
-		<li><a href="redirect">/redirect</a></li>
-		<li><a href="json">/json</a></li>
-		<li><a href="invalid404">/invalid404</a></li>
-	</ul>
-	
-	<img src="doge.jpg">
-</body>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+  </script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTTP Server Example</title>
+  </head>
+  <body style="background-color: #001842;">
+    <nav>
+      <div class="nav-wrapper grey darken-4">
+        <a href="#" class="brand-logo" style="padding-left: 15px;">HTTP Server Example</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="https://nodemcu.readthedocs.io">NodeMCU Documentation</a></li>
+          <li><a href="https://github.com/Sledmine/NodeMCU-HTTP-Server">GitHub</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container" style="background-color: #ffffff; padding: 30px; height: 100vh;">
+		  <div class="center-align">
+			  <img src="nodemcu.png" />
+		  </div>
+      <h2 class="center-align">Welcome to NodeMCU HTTP Server Example</h1>
+	  <p>This index example was made with Materialize CSS:</p>
+	  <a href="https://materializecss.com/">More information here!</a></li>
+      <h4>Endpoints:</h2>
+      <ul class="collection">
+        <li class="collection-item"><a href="welcome?name=NodeMCU">URL Params: /welcome?name=NodeMCU</a></li>
+        <li class="collection-item"><a href="nodemcu.png">Resource example: /nodemcu.jpg</a></li>
+        <li class="collection-item"><a href="doge">Redirect to resources example: /lua</a></li>
+        <li class="collection-item"><a href="redirect">Redirect example: /redirect</a></li>
+        <li class="collection-item"><a href="json">JSON String: /json</a></li>
+        <li class="collection-item"><a href="invalid404">Error 404 Redirect: /invalid404</a></li>
+      </ul>
+    </div>
+  </body>
 </html>
